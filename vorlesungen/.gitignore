@@ -1,0 +1,19 @@
+# Compiled executables (no extension, same name as source)
+*.out
+*.exe
+a.out
+
+# Object and build files
+*.o
+*.obj
+*.d
+
+# Emacs junk
+*~
+\#*\#
+.\#*
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
