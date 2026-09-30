@@ -14,16 +14,50 @@ public:
 };
 
 class Rechteck {
+private:
+  Punkt p1;
+  Punkt p2;
 
+public:
+  Rechteck(const Punkt &a, const Punkt &b) { p1 = a; p2 = b; }
+  
+  void umfang(double &u) const {
+    double x, y;
+    x = p1.getX() - p2.getX();
+    y = p1.getY() - p2.getY();
+    u = 2 * fabs(x) + 2 * fabs(y);
+  }
+
+  double flaeche() const {
+    double x,y;
+    x = p1.getX() - p2.getX();
+    y = p1.getY() - p2.getY();
+    return fabs(x) * fabs(y);
+  }
   //****************************************//
+
+  
 };
 
 int main() {
   // Zwei Variablen vom Typ "Punkt" zur Eingabe der Rechteckkoordinaten
   Punkt a, b;
+  double xa, ya, xb, yb;
+  /* Eingabe der Koordinaten x und y und Setzen der Punkte a und b. */ 
+  std::cout << "enter x'a: ";
+  std::cin >> xa;
 
-  /* Eingabe der Koordinaten x und y und Setzen der Punkte a und b. */
+  std::cout << "enter y'a: ";
+  std::cin >> ya;
+  
+  std::cout << "enter b'a: ";
+  std::cin >> xb;
 
+  std::cout << "enter y'b: ";
+  std::cin >> yb;
+
+  a.setXY(xa, ya);
+  b.setXY(xb,yb);
   //****************************************//
 
   /* Erzeugen eines Objekts der Klasse "Rechteck" aus den Punkten a

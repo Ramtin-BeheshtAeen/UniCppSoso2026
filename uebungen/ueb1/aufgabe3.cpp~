@@ -1,0 +1,16 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+
+using namespace std;
+
+int main(){
+
+  string word;
+  getline(std::cin, word);
+  //for testing:
+  cout << "word is: " << word << endl;
+  
+
+  return 0;
+}

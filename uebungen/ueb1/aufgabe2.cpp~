@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+  double num1;
+  double num2;
+
+  cout << "Enter the first number: " ;
+  if((!cin >> num1)){
+    cerr << "Error" << get_error(code) << endl;
+    //Add return 1 to stop program. return 1 means sth went wrong:
+    return 1;
+  }
+  
+  cout << "Enter the second number: " ;
+  if((!cin >> num2)){
+   cerr << "Error" << get_error(code) << endl;
+   return 1;
+  }
+
+  cout << "Result is Equal to: " << num1 * num2 << endl;
+  //add return 0 that every thing worked:
+  return 0;
+
+}
