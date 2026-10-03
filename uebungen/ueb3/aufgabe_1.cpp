@@ -1,4 +1,8 @@
 #include <iostream>
+#include <memory>
+#include <string>
+#include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -10,7 +14,9 @@ public:
   Point(float x=0 , float y=0) { px = x ; py = y;}
   float getX(void) const {return px;}
   float getY(void) const {return py;}
-  void show(ostream &os) const { os << "x:" << getX() << "," << "y:" << getY() << endl;}
+  float laenge() const { return sqrt(getX()*getX() + getY()*getY()); }
+  void show(ostream &os) const { os << "x:" << getX() << "," << "y:" << getY()  << endl;}
+  ~Point(void) {cout << "destroying x:" << getX() << ",y:" << getY() << endl;} 
 };
 
 Point operator+(const Point &a, const Point &b){
@@ -49,9 +55,7 @@ istream& operator>>(istream &is, Point &p){
   //which the operator receives by reference, so the change shows up outside the function too.
   p = Point(num1, num2);
   return is;
-  
 }
-
 
 int main(){
   
@@ -65,10 +69,33 @@ int main(){
   // //std::cout << d.getX() << ", " << d.getY() << std::endl;
   // cout << d;
 
-  Point p;
-  cout << "enter cordinate" << endl;
-  if(!(cin >> p)){ cerr << "Error" ; return 1;}
-  cout << p;
+   
+  // Point p;
+  // cout << "enter cordinate" << endl;
+  // if(!(cin >> p)){ cerr << "Error" ; return 1;}
+  // cout << p;
 
+  Point p;
+  vector<unique_ptr<Point>> vector_of_unique_pointers;
+  cout << "Enter points, one per line (x y), end with Ctrl+D" << endl;
+  while(cin >> p){
+    //Point* p = new point
+    cout << "Enter cordinate" << endl;
+    unique_ptr<Point> name (new Point(p));
+    //The Point on the heap doesn't move at all, and it isn't copied. Only the ownership passes from name to the vector's slot.
+    //unique pointers can not be copied:
+    cout << (*name).laenge() <<endl;
+    vector_of_unique_pointers.push_back(move(name)); 
+  }
+  //error for fewer than one read:
+  if(vector_of_unique_pointers.size() < 1){
+    cerr << "Error: no points read" << endl;
+    return 1;
+  }
+
+  for (const unique_ptr<Point> &n : vector_of_unique_pointers){
+    cout << n << ": " << *n <<  endl;
+  }
+  
 }
 
