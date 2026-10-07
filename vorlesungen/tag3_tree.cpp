@@ -1,4 +1,5 @@
 #include <iostream>
+#include <utility>
 
 using namespace std;
 
@@ -24,8 +25,30 @@ private:
   }
 
 public:
+  //copy constructor:
+  //A constructor is a copy constructor if its only parameter is a reference to the same class
+  Tree(const Tree &t) : left(nullptr), right(nullptr), value(t.value) {
+    cout << "copy constructor!" << endl;
+    if (t.left)
+      left = new Tree(*t.left);
+    if (t.right)
+      right = new Tree(*t.right);
+  }
+
+  //move:
+  Tree(Tree &&t): left(move(t.left)) , right (move(t.right)), value(t.value) {
+      t.left = nullptr;   // old object gives up ownership
+      t.right = nullptr;
+  }
+  
   //Tree() : left(nullptr), right(nullptr) {cout << "Tree is initialized" <<endl;}
-  Tree(Tree* left = nullptr, Tree* right = nullptr) : left (left) , right(right), value(0) {}
+  Tree(int value = 0, Tree* left = nullptr, Tree* right = nullptr) : left (left) , right(right), value(value) {}
+  
+  ~Tree(void){
+    delete right;
+    delete left;
+  }
+  
   ostream  &draw(ostream &s) const {
    s << '[' << value;
    if( left || right) {
@@ -64,7 +87,15 @@ ostream &operator<<(ostream &os, const Tree &t){
   return t.draw_with_tabs(os);
 }
 
+Tree operator+(const Tree &left, const Tree&right){
+  //Tree c(a);   // a is a Tree and c is a copy of a
+  return Tree(-1, new Tree(left), new Tree(right));
+}
+
 int main(){
-  Tree t(new Tree(new Tree, new Tree), new Tree); //it will be in stack
-  cout << t << endl;
+  Tree t(42, new Tree(5, new Tree(-17), new Tree(22)), new Tree), q; //it will be in stack
+  cout << t + q << endl;
+
+  Tree kombiniert(move(t+q));
+  cout << kombiniert << endl;
 }
