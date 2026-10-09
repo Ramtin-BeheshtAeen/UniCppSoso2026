@@ -1,0 +1,11 @@
+Kurs: Programmieren in C++ (4 Teilnehmer)
+Namen: Anna Ben Clara Dennis
+Uebersicht:
+  Anna: 1.67
+  Ben: 4.50
+  Clara: 3.00
+  Dennis: 0.00
+Kursdurchschnitt: 2.29
+Bestanden: 2
+Gefunden: Clara (4713)
+9999 nicht gefunden

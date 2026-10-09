@@ -1,0 +1,19 @@
+
+class Point {
+private:
+  float px;
+  float py;
+public:
+  Point(float x=0 , float y=0) { px = x ; py = y;}
+  float getX(void) const {return px;}
+  float getY(void) const {return py;}
+};
+
+Point operator+(Point a, Point b){
+  sum_x = a.getX() + b.getX();
+  sum_y = a.getY() + b.getY();
+  Point c(sum_x, sum_y);
+  return c;
+  
+};
+

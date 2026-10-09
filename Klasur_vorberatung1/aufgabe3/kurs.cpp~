@@ -1,0 +1,86 @@
+#include "kurs.h"
+
+#include <algorithm>
+#include <numeric>
+
+// ===================== Student =====================
+
+// TODO: Konstruktor (Initialisierungsliste verwenden)
+Student::Student(std::string name, int matrikelnummer)
+{
+    (void)name; (void)matrikelnummer;   // entfernen, sobald implementiert
+}
+
+void Student::addNote(double note)
+{
+    // TODO
+    (void)note;
+}
+
+double Student::durchschnitt() const
+{
+    // TODO (a): std::accumulate
+    return 0.0;
+}
+
+const std::string& Student::getName() const
+{
+    return name_;
+}
+
+int Student::getMatrikelnummer() const
+{
+    // TODO
+    return 0;
+}
+
+// ===================== Kurs =====================
+
+Kurs::Kurs(std::string titel) : titel_(std::move(titel)) {}
+
+void Kurs::hinzufuegen(std::unique_ptr<Student> student)
+{
+    // TODO: Achtung, unique_ptr kann man nicht kopieren!
+    (void)student;
+}
+
+Student* Kurs::finde(int matrikelnummer) const
+{
+    // TODO
+    (void)matrikelnummer;
+    return nullptr;
+}
+
+std::vector<std::string> Kurs::namen() const
+{
+    // TODO (b): std::transform
+    return {};
+}
+
+double Kurs::kursDurchschnitt() const
+{
+    // TODO (c): std::accumulate (Tipp: Lambda als 4. Argument)
+    return 0.0;
+}
+
+std::map<std::string, double> Kurs::uebersicht() const
+{
+    // TODO (d)
+    return {};
+}
+
+long Kurs::anzahlBestanden() const
+{
+    // TODO (e): std::count_if
+    return 0;
+}
+
+std::size_t Kurs::anzahl() const
+{
+    return teilnehmer_.size();
+}
+
+const std::string& Kurs::getTitel() const
+{
+    return titel_;
+}

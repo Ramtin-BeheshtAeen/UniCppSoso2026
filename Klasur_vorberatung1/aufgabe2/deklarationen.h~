@@ -1,0 +1,79 @@
+
+/*
+ * Aufgabe 2 (25 Punkte) – Datentypen und Deklarationen
+ * =====================================================
+ * HINWEIS: In dieser Aufgabe sind NUR DEKLARATIONEN gefordert,
+ *          KEINE Implementierungen (also keine Funktionsrümpfe { ... }).
+ *
+ * Mit `make` wird diese Datei einmal durch den Compiler geschickt.
+ * Keine Fehler bedeutet nur: syntaktisch korrekt. Ob Ihre Typen und
+ * Signaturen inhaltlich stimmen, prüft `make` NICHT.
+ *
+ * ---------------------------------------------------------------------
+ * Teil A (10 Punkte): Basisdatentypen
+ * ---------------------------------------------------------------------
+ * Ersetzen Sie jeweils `void` durch den PASSENDSTEN eingebauten
+ * Datentyp (bzw. std-Typ), der den beschriebenen Wert speichern soll.
+ *
+ *   A1  Eine Klausurnote wie 1.7 oder 2.3
+ *   A2  Ein einzelner Buchstabe, z.B. 'x'
+ *   A3  Ob ein Student bestanden hat oder nicht
+ *   A4  Die Anzahl der Menschen auf der Erde (ca. 8 Milliarden),
+ *       garantiert vorzeichenbehaftet und mindestens 64 Bit
+ *   A5  Der Rückgabetyp von std::vector<int>::size()
+ * ---------------------------------------------------------------------
+ */
+#ifndef DEKLARATIONEN_H
+#define DEKLARATIONEN_H
+
+#include <string>
+#include <vector>
+#include <map>
+#include <cstddef>
+
+using TypA1 = void;
+using TypA2 = void;
+using TypA3 = void;
+using TypA4 = void;
+using TypA5 = void;
+
+/*
+ * ---------------------------------------------------------------------
+ * Teil B (15 Punkte): Deklarationen
+ * ---------------------------------------------------------------------
+ * Schreiben Sie unterhalb dieses Kommentars die Deklarationen für:
+ *
+ *   B1  Eine globale Variable `anzahlVersuche` vom Typ int, die in
+ *       einer ANDEREN .cpp-Datei definiert wird.
+ *
+ *   B2  Eine Funktion `istPrimzahl`, die eine vorzeichenlose ganze Zahl
+ *       (unsigned int) bekommt und zurückgibt, ob sie prim ist.
+ *
+ *   B3  Eine Funktion `durchschnitt`, die einen Vektor von Gleitkomma-
+ *       zahlen (double) bekommt, OHNE ihn zu kopieren und OHNE ihn
+ *       verändern zu dürfen, und den Durchschnitt als double liefert.
+ *
+ *   B4  Eine Funktion `vertausche`, die zwei int-Variablen des Aufrufers
+ *       über REFERENZEN vertauscht. Kein Rückgabewert.
+ *
+ *   B5  Eine Funktion `vertauschePtr`, die dasselbe über POINTER macht.
+ *
+ *   B6  Eine Funktion `findeMaximum`, die einen Pointer auf ein Array
+ *       von konstanten int-Werten und dessen Länge (std::size_t)
+ *       bekommt und einen Pointer auf das größte (konstante) Element
+ *       zurückgibt.
+ *
+ *   B7  Eine Funktion `wortHaeufigkeit`, die eine Liste von Wörtern
+ *       (std::vector<std::string>, nicht kopieren, nicht verändern)
+ *       bekommt und eine std::map zurückgibt, die jedem Wort
+ *       (std::string) seine Anzahl (int) zuordnet.
+ *
+ *   B8  Eine Klasse `Konto` NUR vorwärts deklarieren.
+ * ---------------------------------------------------------------------
+ */
+
+// Ihre Deklarationen hier:
+
+
+
+#endif
